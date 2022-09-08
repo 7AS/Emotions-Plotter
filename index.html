@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name='author' content='https://github.com/7AS'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Emotions plotter</title>
+</head>
+<body>
+    <div id="black">Please click on "Load .csv" to load a play from the "data" folder.</div>
+
+    <div id="menu">
+        <div id="load_play">
+            Load .csv
+            <input type="file" id="load_play_input">
+        </div>
+        <div id="statistics_button">Basic statistics</div>
+        <div id="polarity_button">Measure of polarity</div>
+        <div id="others_button">Proximity of personnality</div>
+    </div>
+
+    <!-- Basic statistics -->
+    <div class="title" id="statistics_anchor">Basic statistics</div>
+
+    <div id="statistics">
+        <div id="svg_1_1">Speeches and words count for each speaker of the play</div>
+        <div id="svg_1_2">Emotions extracted from speeches</div>
+    </div>
+
+    <div id="tools_basic">
+        <div>
+            <div id="vi1_color1">Words</div>
+            <div id="vi1_color2">Speeches</div>
+        </div>
+        <div>
+            <div id="vi2_type" value="0">Whole play</div>
+            <div id="vi2_scale" value="0">Absolute (count)</div>
+        </div>
+    </div>
+
+    <!-- Measure of polarity -->
+    <div class="title" id="polarity_anchor">Measure of polarity</div>
+
+    <div id="polarity">
+        <div id="svg_2">Evolution of emotional's polarity value for each character during the play</div>
+    </div>
+
+    <div id="polarity_characters">
+        <!-- Will be filled automatically when a play is loaded-->
+    </div>
+
+    <!-- Proximity of personnality -->
+    <div class="title" id="others_anchor">Proximity of personnality</div>
+
+    <div id="others">
+        <div id="others_settings">
+            <div>
+                X Axis
+            </div>
+            <div id="x_axis" value="0">
+                Introspection
+            </div>
+            <div>
+                Y Axis
+            </div>
+            <div id="y_axis" value="1">
+                Temper
+            </div>            
+        </div>
+        <div id="others_figure" >
+            <div id="svg_3">Proximity of personnality traits among characters</div>
+        </div>
+
+        <div id="others_characters">
+            <!-- Will be filled automatically when a play is loaded-->
+        </div>
+    </div>
+
+    <script src="js/d3.v7.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

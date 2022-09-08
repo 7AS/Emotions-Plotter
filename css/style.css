@@ -1,0 +1,341 @@
+body, html
+{
+    width : 100%;
+    height : 100%;
+    padding : 0;
+    margin : 0;
+    color : #fff;
+    background-color : #444;
+    box-sizing : border-box;
+    font-family : Arial, Helvetica, sans-serif;
+}
+
+*
+{
+    box-sizing : border-box;
+}
+
+/* Black screen */
+#black
+{
+    position : fixed;
+    top : 0;
+    left : 0;
+    width : 100%;
+    height : 100%;
+    background-color : #000;
+    opacity : .9;
+    font-weight : bold;
+    display : grid;
+    justify-content : center;
+    align-items : center;
+    font-size : 2em;
+    z-index : 2;
+}
+
+/* Menu */
+#menu
+{
+    width : 100%;
+    height : 5%;
+    display : flex;
+    position : fixed;
+    top : 0;
+    flex-direction : row;
+    justify-content : space-around;
+    align-items : center;
+    background-color : #666;
+    font-weight : bold;
+    z-index : 3;
+}
+
+#menu div
+{
+    width : 25%;
+    height : 100%;
+    display : grid;
+    align-items : center;
+    text-align : center;
+    transition : .25s;
+}
+
+#menu div:hover
+{
+    background-color : #444;
+    cursor : pointer;
+}
+
+/* Load button */
+#load_play
+{
+    background-color : #999;
+}
+
+#load_play_input
+{
+    cursor : pointer;
+}
+
+#load_play input
+{
+    position : absolute;
+    width : 25%;
+    height : 100%;
+    opacity : 0;
+    cursor : pointer;
+}
+
+/* Title */
+.title
+{
+    width : 100%;
+    height : 5%;
+    margin-top : 5%;
+    font-size : 1.5em;
+    text-align : center;
+    display : grid;
+    align-items : center;
+}
+
+/* Figures */
+#statistics, #polarity
+{
+    width : 100%;
+    height : 75%;
+    margin : auto;
+    display : flex;
+    flex-direction : row;
+    justify-content : space-around;
+}
+
+#statistics div,
+#polarity div
+{
+    height : 75%;
+    width : 40%;
+    margin : auto;
+    padding : 1em;
+    text-align : center;
+    box-sizing : border-box;
+    transition : .25s;
+    background-color : #333;
+    border : 1px solid #111;
+    border-radius : .25em;
+    overflow : hidden;
+}
+
+/* Statistics */
+#statistics div:hover
+{
+    cursor : zoom-in;
+}
+
+#polarity
+{
+    height : 80%;
+}
+
+/* Polarity */
+#polarity div
+{
+    width : 85%;
+    height : 85%;
+}
+
+#svg_2
+{
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+    justify-content : center;
+    transition : 2s;
+}
+
+#polarity_characters
+{
+    width : 85%;
+    margin : auto;
+    display : flex;
+    flex-direction : row;
+    align-items : center;
+    flex-wrap : wrap;
+    justify-content : center;
+}
+
+#polarity_characters div
+{
+    margin : .25em;
+    padding : 1em;
+    cursor : pointer;
+    border : 1px solid #111;
+    border-radius : .25em;
+    transition : .25s;
+}
+
+#polarity_characters div:hover
+{
+    filter : brightness(75%);
+}
+
+#polarity #svg_2
+{
+    background-image : linear-gradient(to top, rgba(0,255,255,.4), rgba(255,255,0,.4));
+}
+
+/* Tools */
+#tools_basic
+{
+    display : flex;
+    flex-direction : row;
+    justify-content : space-around;
+    width : 100%;
+    height : 10%;
+    text-align : center;
+}
+
+#tools_basic div
+{
+    display : flex;
+    flex-direction : row;
+    text-align : center;
+    width : 35%;
+}
+
+#tools_basic div div
+{
+    width : 35%;
+    text-align : center;
+    margin : auto;
+    padding : 2%;
+    cursor : pointer;
+    background-color : #333;
+    border : 1px solid #111;
+    border-radius : .25em;
+    transition : .25s;
+}
+
+#tools_basic div div:hover
+{
+    background-color : #555;
+}
+
+#tools_basic div #vi1_color1,
+#tools_basic div #vi1_color2
+{
+    cursor : not-allowed;
+}
+
+#tools_basic div #vi1_color1
+{
+    background-color : #ff5b4d;
+}
+
+#tools_basic div #vi1_color2
+{
+    background-color : #4ddbff;
+}
+
+/* Others */
+#others
+{
+    width : 100%;
+    height : 85%;
+    margin-bottom : 2%;
+    display : flex;
+    flex-direction : row;
+    justify-content : space-around;
+}
+
+#others #others_settings,
+#others #others_characters
+{
+    width : 20%;
+}
+
+#others #others_figure
+{
+    width : 100%;
+    display : flex;
+    flex-direction : column;
+}
+
+#svg_3
+{
+    margin : auto;
+    width : 90%;
+    height : 90%;
+    display : flex;
+    flex-direction : column;
+    align-content : center;
+    justify-content : center;
+    text-align : center;
+    box-sizing : border-box;
+}
+
+#svg_3 svg
+{
+    margin : .5em auto;
+    background-color : #333;
+    border : 1px solid #111;
+    border-radius : .25em;;
+}
+
+#others_settings
+{
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+}
+
+#others_characters
+{
+    width : 85%;
+    height : 100%;
+    margin : auto;
+    padding : 1em .25em;
+    margin-right : 1em;
+    display : flex;
+    flex-direction : row;
+    align-items : center;
+    justify-content : center;
+    background-color : #333;
+    border : 1px solid #111;
+    border-radius : .25em;
+    flex-wrap : wrap;
+    overflow : scroll;
+}
+
+#others_settings div
+{
+    width : 100%;
+    text-align : center;
+}
+
+#others #x_axis,
+#others #y_axis,
+#others_characters div
+{
+    width : 80%;
+    margin : .25em auto;
+    padding : 1em;
+    cursor : pointer;
+    border : 1px solid #111;
+    border-radius : .25em;
+    box-sizing : border-box;
+    transition : .25s;
+    word-break : break-all;
+    white-space : wrap;
+}
+
+#others #x_axis,
+#others #y_axis
+{
+    background-color : #333;
+}
+
+#others #x_axis:hover,
+#others #y_axis:hover,
+#others_characters div:hover
+{
+    filter : brightness(75%);
+}
