@@ -18,7 +18,7 @@ Then, the generated CSV file can be directly imported and viewed in the program.
 
 If the user cannot provide a well-formatted CSV file, three ones are given as demo in the /data folder of the project. Everyone can then try the program without the need to run the analysis program first (which can take a long time depending on the length of the play).
 
-Note : The emotion theory being the analysis is based on the work of [SenticNet](https://sentic.net/). Consequently, the project aims to represent the various dimensions of emotions based on their model. It is not in the scope of this project to create, rework or (re)interpret sentic's model of emotions.
+Note : The emotion theory behind the analysis is based on the work of [SenticNet](https://sentic.net/). Consequently, the project aims to represent the various dimensions of emotions based on their model. It is not in the scope of this project to create, rework or (re)interpret sentic's model of emotions.
 
 ## Main features
 
