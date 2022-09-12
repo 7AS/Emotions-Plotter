@@ -26,11 +26,31 @@ body, html
     background-color : #000;
     opacity : .9;
     font-weight : bold;
-    display : grid;
+    text-align : center;
+    display : flex;
+    flex-direction: column;
     justify-content : center;
     align-items : center;
     font-size : 2em;
     z-index : 2;
+}
+
+/* Example .csv */
+#example
+{
+    margin-top : 3em;
+    font-size : .5em;
+    opacity : .5;
+    cursor : pointer;
+    border : 2px solid #fff;
+    border-radius : 5px;
+    padding : .5em;
+    transition : .25s;
+}
+
+#example:hover
+{
+    opacity : 1;
 }
 
 /* Menu */
@@ -97,6 +117,18 @@ body, html
     align-items : center;
 }
 
+/* Explanations */
+.explanation
+{
+    margin : 0 auto;
+    width : 85%;
+    font-size : 1em;
+    line-height : 1.25;
+    text-align : justify;
+    padding : 1em;
+    opacity : .5;
+}
+
 /* Figures */
 #statistics, #polarity
 {
@@ -149,6 +181,27 @@ body, html
     align-items : center;
     justify-content : center;
     transition : 2s;
+}
+
+#polarity_info
+{
+    margin : auto;
+    margin-bottom : 2em;
+    width : 85%;
+    display : flex;
+    flex-direction : row;
+    align-items : center;
+    justify-content : center;
+    padding : 1em;
+    background-color : #333;
+    border : 1px solid #111;
+    border-radius : .25em;
+}
+
+#polarity_info div
+{
+    width: 33%;
+    text-align : left;
 }
 
 #polarity_characters
