@@ -9,7 +9,10 @@
     <title>Emotions plotter</title>
 </head>
 <body>
-    <div id="black">Please click on "Load .csv" to load a play from the "data" folder.</div>
+    <div id="black">
+        <div>Please click on "Load .csv" to load a play from the "data" folder.</div>
+        <div id="example">Or click here to load an example</div>
+    </div>
 
     <div id="menu">
         <div id="load_play">
@@ -23,6 +26,13 @@
 
     <!-- Basic statistics -->
     <div class="title" id="statistics_anchor">Basic statistics</div>
+    <div class="explanation">
+        <b>Explanations</b>: Some general information about the characters' speeches.<br>
+        On the left: You can see the amount of words spoken by each character (in red) as a proportion of the total number of words in the play. For comparison, is displayed (in cyan) the amount of speeches spoken by each character as a proportion of the total number of speeches in the play.<br>
+        On the right: You can see the different emotions that were extracted from all the speeches. They are separated into 4 categories : temper, introspection, attitude and sensitivity (see the work of sentic.net).<br>
+        <b>Hint</b>: For the extracted emotions (graph on the right), you can change the range of emotions shown by clicking on the button on the left, below the graph. This way you can either focus on a single act or on the whole play.<br>
+        <b>Hint 2</b>: For the extracted emotions (graph on the right), you can switch from absolute ("Absolute (count)) to relative ("Relative (percent)) by clicking on the button on the right, below the graph.
+    </div>
 
     <div id="statistics">
         <div id="svg_1_1">Speeches and words count for each speaker of the play</div>
@@ -42,9 +52,20 @@
 
     <!-- Measure of polarity -->
     <div class="title" id="polarity_anchor">Measure of polarity</div>
+    <div class="explanation">
+        <b>Explanations</b>: This graph represents the emotional evolution of each character throughout the play based on the emotions extracted from their speeches. Values close to 0 indicate that no emotion is particularly predominant. Values close to 1 indicate positive emotions (e.g. joy, euphoria, etc.). Values close to -1 indicate negative emotions (e.g. sadness, depression, anger, etc.)<br>
+        <b>Hint</b>: Hover over the lines with the mouse to display the average polarity values for the character you hovered over (the values are shown below the graph).<br>
+        <b>Hint 2</b>: You can "hide" a character by clicking on their name (below the graph). This allows you to isolate at a glance the evolution of the emotional polarity of the other characters.
+    </div>
 
     <div id="polarity">
         <div id="svg_2">Evolution of emotional's polarity value for each character during the play</div>
+    </div>
+
+    <div id="polarity_info">
+        <div id="pi_char">Character : ?</div>
+        <div id="pi_avg">Average value : ?</div>
+        <div id="pi_pol">Polarity type : ?</div>
     </div>
 
     <div id="polarity_characters">
@@ -53,6 +74,12 @@
 
     <!-- Proximity of personnality -->
     <div class="title" id="others_anchor">Proximity of personnality</div>
+    <div class="explanation">
+        <b>Explanations</b>: This graph allows you to see how close the characters' personalities are based on the emotions extracted for each character. Characters that are visually close on the graph are also statistically close for the two categories of emotions selected. The opposite is also true.<br>
+        <b>Hint</b>: It is possible to change the axes of comparison by clicking on the buttons on the left (below "X axis" and "Y axis"). You can then cycle through the four categories of emotions (introspection, temper, sensitivity and attitude) and update the graph according to your choices.<br>
+        <b>Hint 2</b>: You can "hide" characters by clicking on their name (right panel) to better focus on the others.<br>
+        <b>Hint 3</b>: You can hover over the points to read the exact values for each category of emotions of the hovered character.
+    </div>
 
     <div id="others">
         <div id="others_settings">
