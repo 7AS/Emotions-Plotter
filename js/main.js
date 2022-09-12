@@ -612,7 +612,21 @@ function update_polarity ( data ) {
             }
         }
 
-        data_ready.push( { name : char, values : values } );
+        let avg = 0;
+        let n = 0;
+
+        // Calculates average polarity
+        values.forEach( function( v ) {
+            // Only taking in account non-null values
+            // because null values are mostly irrelevant
+            if ( v.value ) {
+                n+= 1;
+                avg += v.value;
+            }
+        })
+        avg = ( avg / n ).toFixed(3);
+
+        data_ready.push( { name : char, values : values, avg : avg } );
     })
 
     // Creates custom color scale from hsl
@@ -711,13 +725,44 @@ function update_polarity ( data ) {
         .attr( 'x', -75 )
         .text( 'Positive' );
 
-    // Add lines
+    // Adds lines
     let line = d3.line()
         .curve( d3.curveBasis )
         .x( d => svg_2_x( +d.time ) )
-        .y( d => svg_2_y( +d.value ) );
+        .y( d => svg_2_y( +d.value ) )
 
-    svg_2.selectAll( 'path' )
+    // Updates information when mouse over
+    function update_info ( e, d ) {
+        let pol;
+
+        // Defines polarity based on average value
+        if ( d.avg > 0 ) {
+            if ( d.avg >= .5 ) {
+                pol = 'Very positive';
+            }
+            else{
+                pol = 'Positive';
+            }
+        }
+        else if ( d.avg < 0 ) {
+            if ( d.avg <= -.5 ) {
+                pol = 'Very negative';
+            }
+            else{
+                pol = 'Negative';
+            }
+        }
+        else {
+            pol = 'Neutral';
+        }
+
+        document.getElementById( 'pi_char' ).innerText = 'Character : ' + d.name;
+        document.getElementById( 'pi_avg' ).innerText = 'Average value : ' + d.avg;
+        document.getElementById( 'pi_pol' ).innerText = 'Polarity type : ' + pol;
+    }
+
+    svg_2
+        .selectAll( 'path' )
         .data( data_ready )
         .join( 'path' )
             .attr( 'class', d => d.name )
@@ -728,7 +773,8 @@ function update_polarity ( data ) {
             .style( 'opacity', d => {
                 // Ugly, but it works :)
                 return omitted_characters.indexOf( d.name ) < 0 ? 1 : 0.25;
-            });
+            })
+        .on( 'mouseover', function( e, d ){ update_info(e, d); } );
 
     // Add separation line for each acts/scenes
     let play_position = 0;
@@ -1015,7 +1061,13 @@ function update_personnality ( data ) {
         Tooltip.style( 'background-color', color( d.speaker ) );
     }
     function tooltip_move ( e, d ) {
-        Tooltip.text(d.speaker);
+        let text =  d.speaker  +
+                    "<br>Introspection : " + Number( ( d.introspection ).toFixed( 3 ) ) +
+                    "<br>Temper : " + Number( ( d.temper ).toFixed( 3 ) ) +
+                    "<br>Attitude : " + Number( ( d.attitude ).toFixed( 3 ) ) +
+                    "<br>Sensitivity : " + Number( ( d.sensitivity ).toFixed( 3 ) )
+
+        Tooltip.html(text);
         Tooltip.style( 'left', `${e.layerX+20}px` );
         Tooltip.style( 'top', `${e.layerY-20}px` );
     }
@@ -1105,10 +1157,19 @@ async function main ( play ) {
 }
 
 // --------------------------------------------------
+// Loads example csv
+// --------------------------------------------------
+
+document.getElementById( 'example' ).addEventListener( 'click', function () {
+    let play_path = 'data/The Devil - Exported.csv'
+    main( play_path );
+});
+
+// --------------------------------------------------
 // Handles new plays with custom paths
 // --------------------------------------------------
 
 document.getElementById( 'load_play_input' ).addEventListener( 'change', function () {
     let play_path = 'data/' + this.files[0].name;
     main( play_path );
-})
+});
